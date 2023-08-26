@@ -1,0 +1,40 @@
+:root {
+--purple: #643a92;
+--lavender: #9d6dd0;
+--white: white;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+article {
+    display:flex;
+    flex-direction: column;
+    margin-top: 4rem;
+}
+ article div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+ }
+ 
+ /* How can I use FlexBox to get h1, p, and button to be spaced evenly on a column direction  */
+
+
+
+ button {
+    border-radius: 5px;
+    background-color: var(--purple);
+    color: var(--white)
+ };
+
+ button:hover {
+    background-color: var(--lavender);
+ };
