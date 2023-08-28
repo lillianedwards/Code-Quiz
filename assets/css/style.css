@@ -33,8 +33,12 @@ article {
     border-radius: 5px;
     background-color: var(--purple);
     color: var(--white)
- };
+ }
 
  button:hover {
     background-color: var(--lavender);
- };
+ }
+
+ #high-scores {
+    text-decoration: none;
+ }

@@ -1,44 +1,7 @@
 //VARIABLE DECLARAIONS
-var startButton = document.querySelector("start");
-var duration = 75;
+var startButton = document.querySelector("#start");
 var displayTime = document.getElementById("remaining");
-
-//FUNCTIONS
-
-
-function setTime() {
-    var timerInterval = setInterval(function(){
-        duration --;
-        displayTime.textContent = "Time:" + duration;
-        if (duration === 0) {
-            clearInterval(timerInterval);
-            displayTime.textContent = " ";
-            endQuiz();
-        }
-    },1000);
-}
-
-
-
-
-
-
-//EVENT LISTENERS
-
-// startButton.addEventListener(click, setTime()) {
-
-// }
-
-
-
-
-//start timer
-//go to next question
-// - create text elements / add text content / append
-// - duration -- 
-// - logic for timer duration change based on answer choice 
-//create 
-
+var duration = 75;
 
 var questions = [{
     aQuestion: "Commonly used data types DO NOT include:",
@@ -76,11 +39,66 @@ var questions = [{
     choice4: "4. console.log"
 }
 ];
-console.log(questions)
-
 
 // questions[0] === choice2
 //questions [1] === choice3
 /// questions[2] === choice4
 //questions[3] === choice3
 // questions[4] === choice4
+
+var quizContain = document.getElementById("quiz-container");
+var questionContain =document.querySelector("#question-container");
+var choicesContain = document.querySelector("#choices-container");
+var wrongOrCorrect = document.querySelector("#wrong-or-right");
+
+//FUNCTIONS
+function startTimer () {
+    // var timer = duration;
+    // var seconds;
+
+    var timerInterval = setInterval(function () {
+        duration --;
+
+        displayTime.textContent = "Time:" + duration;
+        if (duration === 0) {
+            clearInterval(timerInterval);
+            displayTime.textContent = " ";
+            endQuiz();
+        }
+    }, 1000 );
+}
+
+
+function endQuiz () {
+var allDone = document.createElement("done");
+document.textContent = "All Done!";
+var finalScore = document.createElement("final");
+}
+
+
+
+function displayQuestions () {
+    for (let index = 0; index < questions.length; index++) {
+        
+  
+        
+    }
+} //forEach ??
+
+
+
+
+
+
+//EVENT LISTENERS
+
+startButton.addEventListener("click", startTimer());
+
+
+
+
+
+
+
+
+

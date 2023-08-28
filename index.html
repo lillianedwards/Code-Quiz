@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>JavaScript Quiz📝 </title>
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <!-- Access to Scores and Timer -->
     <header>
       <nav>
         <div>
-          <h4>
-            <a href="#">View Highscores</a>
+          <h4 
+            <a href="#" #high-scores>View Highscores</a>
           </h4>
         </div>
         <div>
@@ -20,8 +21,8 @@
         </div>
       </nav>
     </header>
-
-    <main>
+<!-- Start Page -->
+    <section>
       <article>
         <div>
           <h1>Coding Quiz Challenge</h1>
@@ -37,8 +38,42 @@
           <button id="start">Start Quiz</button>
         </div>
       </article>
+    </section>
+
+  <!-- Quiz Box  -->
+    <main id="quiz-container">
+        <section>
+            <div id="question-container">
+<!-- Questions from questions array  -->
+            </div>
+            <div id="choices-container">
+<!-- Choices from questions array  -->
+            </div>
+        </section>
+        <section>
+            <div>
+            <!-- <hr> to be added under questions -->
+            </div>
+            <div>
+                <h4 id="wrong-or-right"></h4>
+            </div>
+        </section>
+
+        <div>
+            <form id="done">
+                <!-- <h2></h2>
+                <h4></h4>
+                <label for="initials">Enter Initials: </label>
+                <input type="text" id="initials" required minlength="2" maxlength="3">
+                <button></button> -->
+            </form>
+        </div>
+
     </main>
 
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
+
+
+<!-- Do I need to make div for each answer choice or do I need to assign all the choice values to one key in the objects within the questions array in JS -->
