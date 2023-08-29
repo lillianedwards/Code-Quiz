@@ -1,79 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Quiz📝 </title>
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
+</head>
+<body>
     <!-- Access to Scores and Timer -->
-    <header>
-      <nav>
-        <div>
-          <h4 
-            <a href="#" #high-scores>View Highscores</a>
-          </h4>
-        </div>
-        <div>
-          <h4 id="remaining"></h4>
-        </div>
-      </nav>
-    </header>
+<section>
+<nav>
+<h4 
+    <a href="highscores.html">View Highscores</a>
+</h4>
+    <h4 id="remaining"></h4>
+</nav>
+</section>
+
 <!-- Start Page -->
-    <section>
-      <article>
-        <div>
-          <h1>Coding Quiz Challenge</h1>
-        </div>
-        <div>
-          <p>
-            Try to answer the following code-related questions within the time
-            limit. Keep in mind that incorrect answers will penalize your
-            scoretime by 10 seconds
-          </p>
-        </div>
-        <div>
-          <button id="start">Start Quiz</button>
-        </div>
-      </article>
-    </section>
+<section id="start-container">
+    <h1>Coding Quiz Challenge</h1>
+    <p>
+        Try to answer the following code-related questions within the time
+        limit. Keep in mind that incorrect answers will penalize your
+        scoretime by 10 seconds
+    </p>
+    <button class="button" id="start">Start Quiz</button>
+</section>
 
-  <!-- Quiz Box  -->
-    <main id="quiz-container">
-        <section>
-            <div id="question-container">
-<!-- Questions from questions array  -->
-            </div>
-            <div id="choices-container">
-<!-- Choices from questions array  -->
-            </div>
-        </section>
-        <section>
-            <div>
-            <!-- <hr> to be added under questions -->
-            </div>
-            <div>
-                <h4 id="wrong-or-right"></h4>
-            </div>
-        </section>
+<!-- Quiz Page -->
+<section id="quiz-container">
+    <div id="question-container"></div>
+    <div id="choices-container" class="button"></div>
+    <h3 id="wrong-or-right"></h3>
+</section>
 
-        <div>
-            <form id="done">
-                <!-- <h2></h2>
-                <h4></h4>
-                <label for="initials">Enter Initials: </label>
-                <input type="text" id="initials" required minlength="2" maxlength="3">
-                <button></button> -->
-            </form>
-        </div>
+<!-- Results Page -->
+<section id="results-container" class="hidden">
+    <h2> All Done!</h2>
+    <h3 id="final"></h3>
+    <form>
+        <label for="initials">Enter Initials:</label>
+        <input type="text" id="user-initials" required minlength="2" maxlength="3">
+        <button id="score-submit" class="button">Submit</button>
+    </form>
+</section>
 
-    </main>
 
     <script src="./assets/js/script.js"></script>
-  </body>
+</body>
 </html>
 
 
-<!-- Do I need to make div for each answer choice or do I need to assign all the choice values to one key in the objects within the questions array in JS -->

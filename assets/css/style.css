@@ -25,20 +25,24 @@ article {
     
  }
  
- /* How can I use FlexBox to get h1, p, and button to be spaced evenly on a column direction  */
+ 
 
 
 
- button {
+ .button {
     border-radius: 5px;
     background-color: var(--purple);
     color: var(--white)
  }
 
- button:hover {
+ .button:hover {
     background-color: var(--lavender);
  }
 
  #high-scores {
     text-decoration: none;
+ }
+
+ .hidden {
+    display: none;
  }
