@@ -2,7 +2,7 @@
 
 ## Description
 
-Boot camp students are learning content so quickly in classes each week. They need materials than can quickly test their knowledge on fundamentals. That's where this timed quiz comes it!
+Boot camp students are learning content quickly in classes each week. They need resources than can quickly test their knowledge on fundamentals. That's where this timed quiz comes in!
 
 The quiz features:
 
@@ -26,7 +26,18 @@ For users new to github, follow the git clone process to copy the code into your
 
 ## Usage
 
+![Code Quiz Start Page](./assets/images/CodeQuiz1.png)
+
+![Code Quiz Question Page](./assets/images/CodeQuiz2.png)
+
+![Code Quiz Question Page with Correct Display for Previous Question](./assets/images/CodeQuiz3.png)
+
+![Code Quiz Score Submit Page](./assets/images/CodeQuiz4.png)
+
 ## Credit 
 
+I worked on this project alone, but received help from my TA, Justin Moore.
 
 ## License 
+
+This project is not licensed. 

@@ -4,24 +4,13 @@ var highScores = JSON.parse(localStorage.getItem("highscores"))
 
 
 
-function renderScores () {
-    console.log(highScores);
-    if (highScores) {
-        return JSON.parse(highScores)
-    } else {
-        return [];
-    }
-    }
-
-    var scores = renderScores();
-
-
-
-
     for (var i = 0; i < highScores.length; i++) {
         var initials = highScores[i].initials;
-        var duration = highScores[i].duration;
+        var duration = highScores[i].score;
         var li = document.createElement("li");
-        li.textContent = "";
+
+        li.textContent = initials + duration;
         ol.appendChild(li);
-    }
+        console.log(initials, duration);
+
+    };
