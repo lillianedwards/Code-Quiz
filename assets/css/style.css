@@ -6,43 +6,25 @@
 
 * {
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
+
+
 
 nav {
   display: flex;
   justify-content: space-between;
 }
 
-article {
-    display:flex;
-    flex-direction: column;
-    margin-top: 4rem;
-}
- article div {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    
- }
- 
- 
-
-
 
  .button {
     border-radius: 5px;
     background-color: var(--purple);
-    color: var(--white)
+    color: var(--white);
  }
 
  .button:hover {
     background-color: var(--lavender);
  }
 
- #high-scores {
-    text-decoration: none;
- }
-
- .hidden {
-    display: none;
- }
+ 

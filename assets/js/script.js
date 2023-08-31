@@ -1,10 +1,11 @@
 //VARIABLE DECLARAIONS
+
 var startButton = document.querySelector("#start");
 var displayTime = document.getElementById("remaining");
 var duration = 75;
 var startContain = document.getElementById("start-container");
-
 var currentIndex = 0;
+var timerInterval;
 var questions = [
   {
     title: "Commonly used data types DO NOT include:",
@@ -55,6 +56,7 @@ var questionContain = document.querySelector("#question-container");
 var choicesContain = document.querySelector("#choices-container");
 var wrongOrCorrect = document.querySelector("#wrong-or-right");
 var userInput;
+var choiceButton = document.createElement("button");
 
 var resultsContain = document.getElementById("results-container");
 var finalScore = document.querySelector("#final");
@@ -64,61 +66,93 @@ var sumbitFinal = document.querySelector("#score-submit");
 //FUNCTIONS
 
 function startTimer() {
-
-var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     duration--;
 
     displayTime.textContent = "Time:" + duration;
     if (duration === 0) {
-    clearInterval(timerInterval);
-    displayTime.textContent = " ";
-    endQuiz();
+      clearInterval(timerInterval);
+      displayTime.textContent = " ";
+      quizContain.textContent = "";
+      resultsContain.removeAttribute("hidden");
+      finalScore.textContent = "Your score is " + duration + "!";
     }
-}, 1000);
+  }, 1000);
 }
-
-// function endQuiz () {
-// var allDone = document.createElement("done");
-// document.textContent = "All Done!";
-// var finalScore = document.createElement("final");
-// }
 
 function displayQuestions() {
-  var qTitle = document.createElement("h2");
-  qTitle.textContent = questions[currentIndex].title;
-  questionContain.appendChild(qTitle);
+    var qTitle = questions[currentIndex].title;
+     // this is where it's making the last question need to be clicked twice to work 
+  //   qTitle = qTitle.title
+    questionContain.textContent = qTitle;
+    choicesContain.textContent = "";
+    
+    for (var i = 0; i < questions[currentIndex].choices.length; i++) {
+        choiceButton = document.createElement("button");
+        choiceButton.textContent = questions[currentIndex].choices[i];
+        choiceButton.className = "button";
+        choicesContain.appendChild(choiceButton);
+    }
+};
 
-  for (var i = 0; i < questions[currentIndex].choices.length; i++) {
-    console.log(questions[currentIndex].title);
-    console.log(questions[currentIndex].choices[i]);
-
-    var choiceButton = document.createElement("button");
-    choiceButton.textContent = questions[currentIndex].choices[i];
-    choicesContain.appendChild(choiceButton);
+function renderScores () {
+var storedHighscores = localStorage.getItem("highscores")
+console.log(storedHighscores);
+if (storedHighscores) {
+    return JSON.parse(storedHighscores)
+} else {
+    return [];
 }
 }
-
 
 //EVENT LISTENERS;
 
 startButton.addEventListener("click", function (event) {
-    startContain.textContent = " ";
-    startTimer();
+  startContain.textContent = " ";
+  startTimer();
+  displayQuestions();
+});
+
+choicesContain.addEventListener("click", function (event) {
+    userInput = event.target.innerHTML;
+    if (userInput == questions[currentIndex].answer) {
+        wrongOrCorrect.textContent = "Correct! ✅";
+    } else if (userInput !== questions[currentIndex].answer) {
+        wrongOrCorrect.textContent = "Wrong! ❌";
+        duration -= 10;
+    } else if (duration <= 0 || !questions[currentIndex]) {
+        // quizContain.textContent = "";
+        // resultsContain.removeAttribute("hidden");
+        clearInterval(timerInterval);
+    }
+    currentIndex++;
+    if (questions[currentIndex] === undefined) {
+        clearInterval(timerInterval);
+        quizContain.textContent = "";
+        resultsContain.removeAttribute("hidden");
+        finalScore.textContent = "Your score is " + duration + "!";
+        displayTime.textContent = "Time:" + duration;
+    } else {
     displayQuestions();
-}
-);
+  };
+});
+
+sumbitFinal.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var thankYou = document.createElement("p");
+  thankYou.textContent =
+    "Thank you, your score has been saved in local memory!";
+  resultsContain.appendChild(thankYou);
+
+var highscores = renderScores();
+highscores.push({    
+    initials: document.querySelector("#user-initials").value,
+    score: duration,
+})
+
+localStorage.setItem("highscores", JSON.stringify(highscores));
+});
 
 
-// choicesContain.addEventListener ("click", function (event) {
-// userInput = event.target.innerHTML; // what could i use besides innterHTML
 
-// if (userInput === questions.answer) {
-//     wrongOrCorrect.textContent = "Correct! ✅";
-//     currentIndex++;
-// } else if (userInput !== questions.answer) {
-//     wrongOrCorrect.textContent = "Wrong! ❌"
-//     duration -10;
-//     currentIndex++
-// } else if (userInput === questions.answer[i])
-
-// );
